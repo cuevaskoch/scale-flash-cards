@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const keys = [
+  'C',
+  'G',
+  'D',
+  'A',
+  'E',
+  'B',
+  'G♭',
+  'F♯',
+  'D♭',
+  'C♯',
+  'A♭',
+  'E♭',
+  'B♭',
+  'F',
+];
+const modes = [
+  'Major',
+  'Minor',
+];
+
+const getRand = array =>
+  array[Math.floor(Math.random() * array.length)];
+
+const getScale = () => `${getRand(keys)} ${getRand(modes)}`;
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { scale: getScale() };
+  }
+
+  getNextScale = () => {
+    this.setState({ scale: getScale() });
+  }
+
+  render() {
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>{this.state.scale}</p>
+          <button onClick={this.getNextScale}>Get Next Scale</button>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
