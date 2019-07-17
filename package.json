@@ -1,5 +1,6 @@
 {
   "name": "scale-flash-cards",
+  "homepage": "https://www.cuevaskoch.com/scales",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
