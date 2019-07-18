@@ -40,10 +40,13 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className="App">
+      <div
+        className="App"
+        onClick={this.getNextScale}
+      >
         <header className="App-header">
           <p>{this.state.scale}</p>
-          <button onClick={this.getNextScale}>Get Next Scale</button>
+          <p className="muted">Click or tap anywhere to get your next scale.</p>
         </header>
       </div>
     );
